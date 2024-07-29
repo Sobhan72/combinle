@@ -1,2 +1,2 @@
 # Combinle
-Play my combinle game at combinle.com
+Play my game at [combinle.com](https://combinle.com).
