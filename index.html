@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Word game where you solve a combination lock inspired by the NYT Wordle game.">
+    <title>Combinle</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+</head>
+<body>
+    <div id="headerContainer">
+        <div id="header">
+            <h1>Combinle</h1>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><button id="rulesBtn" aria-label="Open Rules"><i class="fas fa-info-circle"></i></button></li>
+                <li><button id="statsBtn" aria-label="Open Statistics"><i class="fas fa-chart-bar"></i></button></li>
+                <li><button id="settingsBtn" aria-label="Open Settings"><i class="fas fa-cog"></i></button></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="line"></div>
+    <div id="dailyContainer">
+        <div id="dailyHeader"></div>
+        <div id="divider"></div>
+        <button id="archiveBtn">Archive</button>
+    </div>
+    <div id="notificationBox">
+        <p id="notificationMessage"></p>
+    </div>
+    <div id="gameBoard">
+        <div id="keyboardContainer">
+            <div class="keyboardRow">
+            <button dataKey="q">q</button>
+            <button dataKey="w">w</button>
+            <button dataKey="e">e</button>
+            <button dataKey="r">r</button>
+            <button dataKey="t">t</button>
+            <button dataKey="y">y</button>
+            <button dataKey="u">u</button>
+            <button dataKey="i">i</button>
+            <button dataKey="o">o</button>
+            <button dataKey="p">p</button>
+            </div>
+            <div class="keyboardRow">
+            <div class="spacerHalf"></div>
+            <button dataKey="a">a</button>
+            <button dataKey="s">s</button>
+            <button dataKey="d">d</button>
+            <button dataKey="f">f</button>
+            <button dataKey="g">g</button>
+            <button dataKey="h">h</button>
+            <button dataKey="j">j</button>
+            <button dataKey="k">k</button>
+            <button dataKey="l">l</button>
+            <div class="spacerHalf"></div>
+            </div>
+            <div class="keyboardRow">
+            <button dataKey="Enter" class="enterButton">Enter</button>
+            <button dataKey="z">z</button>
+            <button dataKey="x">x</button>
+            <button dataKey="c">c</button>
+            <button dataKey="v">v</button>
+            <button dataKey="b">b</button>
+            <button dataKey="n">n</button>
+            <button dataKey="m">m</button>
+            <button dataKey="Backspace" class="delButton">&#x232B;</button>
+            </div>
+        </div>
+    </div>
+    <div id="modal">
+        <div id="modalContent">
+            <span id="close">&#10006;</span>
+            <div id="rulesContainer" class="container">
+                <div id="tabs">
+                    <h2 class="tab">How To Play</h2>
+                    <h2 class="tab">Tips</h2>
+                </div>
+                <div class="rulesContent">
+                    Solve the Combinle by turning the letter dials to align five words inside the grid.
+                    <br><br/>
+                    The dials are turned by pressing the &#x25B2; and &#x25BC; buttons.
+                    <br><br/>
+                    Once the Combinle has been solved, the grid will automatically unveil the second part of the puzzle that initially is locked underneath.
+                    <br><br/>
+                    The grid will then be colored using the following clues for each letter:
+                    <br><br/>
+                    <span class="colorBox turquoise"></span> Turquoise means the right letter in the right spot.
+                    <br />
+                    <span class="colorBox magenta"></span> Magenta means the right letter in the wrong spot.
+                    <br />
+                    <span class="colorBox grey"></span> Grey means the letter does not appear in the word.
+                    <br><br/>
+                    You have <strong>ONE GUESS</strong> to identify the secret word based on the clues. Only <strong>ONE</strong> unique word fits the given clues.
+                    <br><br/>
+                    Can you solve the puzzle?
+                    <br><br/>
+                </div>
+                <div class="rulesContent">
+                    <ul>
+                        <li>Each dial consists of 8 letters: 5 belonging to the words and 3 random letters.</li>
+                        <br>
+                        <li>If you guess a real word that matches the clues but is not included in the word list, you won't lose and can try again.</li>
+                        <br>
+                        <li>You will not lose by guessing any invalid or misspelled word.</li>
+                        <br>
+                        <li>When guessing the secret word, you don't need to type out each letter in a row. Use the arrow keys or your mouse to switch between the different letters.</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="statsContainer" class="container">
+                <h2>Game Statistics</h2>
+                <table id="statsTable">
+                    <tr>
+                        <td><strong>Played:</strong></td>
+                        <td id="played"></td>
+                        <td><strong>Turns:</strong></td>
+                        <td id="turns"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wins:</strong></td>
+                        <td id="wins"></td>
+                        <td><strong>Average Turns:</strong></td>
+                        <td id="avgTurns"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Win %:</strong></td>
+                        <td id="winPerc"></td>
+                        <td><strong>Least Turns:</strong></td>
+                        <td id="leastTurns"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="archiveContainer" class="container">
+                <div id="archiveOpts">
+                    <select name="archiveMonth" id="archiveMonth">
+                        <option value="0">Jan</option>
+                        <option value="1">Feb</option>
+                        <option value="2">Mar</option>
+                        <option value="3">Apr</option>
+                        <option value="4">May</option>
+                        <option value="5">Jun</option>
+                        <option value="6">Jul</option>
+                        <option value="7">Aug</option>
+                        <option value="8">Sep</option>
+                        <option value="9">Oct</option>
+                        <option value="10">Nov</option>
+                        <option value="11">Dec</option>
+                    </select>
+                
+                    <select name="archiveYear" id="archiveYear">
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </div>
+                
+                <div id="archiveBody">
+                    <div id="archiveDays">
+                        <div>M</div>
+                        <div>T</div>
+                        <div>W</div>
+                        <div>T</div>
+                        <div>F</div>
+                        <div>S</div>
+                        <div>S</div>
+                    </div>
+                
+                    <div id="archiveDates">
+                    </div>
+                </div>
+                
+                <div id="archiveSubmitBtns">
+                    <button class="archiveSubmitBtn" id="archiveBack">Back</button>
+                    <button class="archiveSubmitBtn"  id="archiveSelect">Select</button>
+                </div>
+
+                <div id="footnote">
+                    <div class="note"><span class="smallColorBox turquoise"></span> Wins</div>
+                    <div class="note"><span class="smallColorBox red"></span> Losses</div>
+                    <div class="note"><span class="smallColorBox magenta"></span> Selected</div>
+                    <div class="note"><span class="smallColorBox black"></span> Unavailable</div>
+
+                </div>
+            </div>
+            <div id="settingsContainer" class="container">
+                <h2>Settings</h2>
+                <div id="settingsContent">
+                    <div class="settingsItem tooltip">
+                        <div>Hard Mode
+                            <span class="tooltipText">All columns are scrambled</span>
+                          </div>
+                        <label class="switch">
+                            <input type="checkbox" id="hardModeSwitch">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="settingsItem">
+                        <div>High Contrast Mode</div>
+                        <label class="switch">
+                            <input type="checkbox" id="colorBlindSwitch">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <p> Find any bugs or suspicious behaviour? Send me a DM on <a href="https://discord.com/channels/@me" id="reportLink" target="_blank">discord</a> <strong>@stizzy72</strong>. </p>
+            </div>
+        </div>
+    </div>
+    <script src="game.js" type="module"></script>
+</body>
+</html>
