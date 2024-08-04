@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Unscramble a combination lock of words and solve for the daily hidden word.">
+    <meta name="description" content="Word game where you solve a combination lock inspired by the NYT Wordle game.">
     <title>Combinle</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
-    <script defer src="https://umami-combinle.vercel.app/script.js" data-website-id="7662aa38-9141-4043-86d7-b428928a4ff9"></script>
 </head>
 <body>
     <div id="headerContainer">
@@ -78,9 +77,7 @@
     </div>
     <div id="modal">
         <div id="modalContent">
-            <svg id="close" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 18L18 6M6 6l12 12" stroke="rgba(255, 0, 0, 1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <span id="close">&#10006;</span>
             <div id="rulesContainer" class="container">
                 <div id="tabs">
                     <h2 class="tab">How To Play</h2>
@@ -196,9 +193,9 @@
                 <h2>Settings</h2>
                 <div id="settingsContent">
                     <div class="settingsItem tooltip">
-                        <div id="hardModeDiv">Hard Mode
+                        <div>Hard Mode
                             <span class="tooltipText">All columns are scrambled</span>
-                        </div>
+                          </div>
                         <label class="switch">
                             <input type="checkbox" id="hardModeSwitch">
                             <span class="slider round"></span>
@@ -216,6 +213,6 @@
             </div>
         </div>
     </div>
-    <script src="game.js"></script>
+    <script src="game.js" type="module"></script>
 </body>
 </html>
