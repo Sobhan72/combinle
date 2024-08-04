@@ -99,6 +99,7 @@ body {
     align-items: center;
     gap: 15px;
     padding: 5px;
+    padding-bottom: 10px;
     user-select: none;
 }
 
@@ -517,17 +518,21 @@ body {
     position: absolute;
     top: 5px;
     right: 15px;
-    font-size: 28px;
     width: 30px;
-    text-align: center;
+    height: 30px;
     cursor: pointer;
-    color: hsla(0, 100%, 50%, 0.886);
     user-select: none;
+    /* Adjust these if needed to match your design */
 }
 
-#close:hover,
-#close:focus {
-    color: hsla(0, 100%, 50%, 0.607);
+#close path {
+    stroke: rgba(255, 0, 0, 1); /* Color of the X mark */
+    transition: stroke 0.3s; /* Smooth transition for color changes */
+}
+
+#close:hover path,
+#close:focus path {
+    stroke: rgba(255, 0, 0, 0.6); /* Color of the X mark on hover/focus */
 }
 
 .container {
@@ -636,27 +641,27 @@ body {
 #statsTable td:nth-child(1) {
     text-align: right;
     padding-right: 10px;
-    width: 15%;
+    width: 20%;
 }
 
 #statsTable td:nth-child(3) {
     text-align: right;
     padding-right: 10px;
-    width: 33%;
+    width: 31%;
 }
 
 #statsTable td:nth-child(2) {
     text-align: left;
     padding: 20px 0px;
     font-size: 2.6em;
-    width: 35%;
+    width: 33%;
 }
 
 #statsTable td:nth-child(4) {
     text-align: left;
     padding: 20px 0px;
     font-size: 2.6em;
-    width: 17%;
+    width: 18%;
 }
 
 #settingsContainer {
@@ -1132,7 +1137,7 @@ select {
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 350px), (max-height: 640px) {
     #gameBoard {
         height: auto;
     }
@@ -1145,6 +1150,14 @@ select {
     #statsContainer {
         padding: 5px;
         padding-top: 5px;
+    }
+
+    #statsTable td:nth-child(even) {
+        font-size: 1.4em;
+    }
+
+    #statsTable td:nth-child(odd) {
+        font-size: 0.7em;
     }
 
     .box.locked::after {
