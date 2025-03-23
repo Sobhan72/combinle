@@ -474,5 +474,33 @@
 
 "Stand 238": ["gauge", "champ", "loopy", "spoke", "rifle"],
 
-"Vapid 239": ["brash", "hitch", "stair", "jerky", "alarm"]
+"Vapid 239": ["brash", "hitch", "stair", "jerky", "alarm"],
+
+"Boule 240": ["snuff", "annoy", "dumpy", "aroma", "bushy"],
+
+"Taunt 241": ["ulcer", "afoul", "fjord", "usage", "hover"],
+
+"Scary 242": ["rebus", "roast", "druid", "human", "proof"],
+
+"Kebab 243*": ["stump", "cough", "vigil", "mourn", "lowly"],
+
+"Outdo 244": ["focus", "point", "abbot", "pithy", "grave"],
+
+"Style 245": ["group", "rabbi", "coach", "clone", "model"],
+
+"Crush 246": ["prone", "final", "vigor", "sigma", "bathe"],
+
+"Broom 247": ["flunk", "gnome", "rainy", "smock", "penal"],
+
+"Taboo 248": ["marry", "snail", "whack", "spunk", "green"],
+
+"Spray 249": ["cycle", "touch", "groan", "anvil", "hound"],
+
+"Scold 250*": ["paper", "feign", "icily", "bribe", "yearn"],
+
+"Entry 251": ["amber", "syrup", "swamp", "spiny", "afoot"],
+
+"Began 252": ["start", "minus", "vista", "spoke", "login"],
+
+"Snail 253": ["downy", "proud", "erode", "razor", "antic"]
 }
